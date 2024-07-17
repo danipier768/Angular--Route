@@ -1,0 +1,53 @@
+
+<div>
+    <div class="d-flex justify-content-center">
+        <h1>Forms Reactive</h1>
+    </div>
+    <form [formGroup]="userForm" (submit)="handleClick()">
+            <div>
+                    <label for="user-name">User Name: </label>
+                    <input type="text" id="user-name" formControlName="names">
+                    @if(userForm.controls['names'].invalid && userForm.controls['names'].touched){
+                        <p class="form-error">Name is requerid</p>
+                    }
+            </div>
+            <div>
+                    <label for="user-number">User Number: </label>
+                    <input type="number" id="user-number" formControlName="number">
+                    @if(userForm.controls['number'].invalid && userForm.controls['number'].touched){
+                        <p class="form-error">Number is requerid</p>
+                    }
+            </div>
+            <div>
+                    <label for="user-email">User Email: </label>
+                    <input type="text" id="user-email" formControlName="email">
+                    @if(userForm.controls['email'].invalid && userForm.controls['email'].touched){
+                        <p class="form-error">Email is requerid</p>
+                    }
+            </div>
+            <div>
+                    <label for="user-birthdate">User birthdate: </label>
+                    <input type="date" id="user-birthdate" formControlName="birthdate">
+                    @if(userForm.controls['birthdate'].invalid && userForm.controls['birthdate'].touched){
+                        <p class="form-error">Birthdate is requerid</p>
+                    }
+            </div>
+            <div>
+                    <label for="user-name">User Gender: </label>
+                    <select id="user-gender" formControlName="gender">
+                        <option value="">Seleccione una opción </option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                        <option value="other">Otro</option>
+                    </select>
+                    @if(userForm.controls['gender'].invalid && userForm.controls['gender'].touched){
+                        <p class="form-error">Gender is requerid</p>
+                    }
+            </div>
+            <div>
+                    <label for="user-description">User description: </label>
+                    <input type="text" id="user-description" formControlName="description">
+            </div>
+            <button type="submit" [disabled]="userForm.invalid"> Enviar</button>
+        </form>
+</div>
